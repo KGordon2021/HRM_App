@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="public/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="pages">
+        <%- include('../partials/nav.ejs') %>
+    </div>
+
+    <div class="tables">
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Orientation Id #</th>
+                <th>Orientation Type</th>
+                <th>Orientation Officer ID</th>
+                <th>Orientation Officer Name</th>
+                <th>Orientation Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <% if(data.length) {
+                for(var i = 0; i < data.length; i++) { 
+            %>
+            <tr>
+                <td class="centered"><%= data[i].id %></td>
+                <td><%= data[i].group_id %></td>
+                <td><%= data[i].orientation_type %></td>
+                <td class="brk"><%= data[i].hro_id %></td>
+                <td class="brk"><%= data[i].hro_fnm %> <%= data[i].hro_lnm %></td>
+                <td> <%= new Date(data[i].appointment_date).toLocaleDateString() %> </td>
+                <td class="centered">
+                    <a class="light" href="/allRecords/update/<%=data[i].id%>">Update</a> <!--this refers to the index of the current data collection which is currently stored as data-->
+                    <a class="warn" href="/allRecords/delete/<%=data[i].id%>">Remove</a>
+                </td>
+                
+            </tr>
+               <% }
+          }else{ %>
+            <tr>
+                <td>No students</td>
+            </tr>
+           <% } %>
+        </tbody>
+    </table>
+    <div class="addbtn">
+        <a href="addNewOrient">Add New Orientation</a>
+        </div>
+    </div>
+</body>
+</html>

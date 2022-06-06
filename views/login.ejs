@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/styles.css">
+    <style>
+            .pages {
+        width: 80%;
+        border: 2px solid rgb(255, 51, 212, 0.2);
+        margin-top: 10px;
+        margin-left: 150px;
+        border-radius: 5px;
+        z-index: 999;
+    
+    }
+    
+    .pages nav {
+      display: flex;
+      background-color: rgb(212, 51, 212, 0.2);
+      width: 100%;
+      padding: 10px 20px;
+    }
+    
+    .pages nav a {
+        /* border: 1px solid #fff; */
+        text-decoration: none;
+        padding: 5px 8px;
+        border-left: 2px solid rgb(255, 51, 212, 0.2);
+        margin-right: 5px;
+        transition: all ease-in-out 0.8s;
+        cursor: pointer;
+    }
+    
+    .pages nav a:hover {
+        background: #fff;
+        border-left: 2px solid rgb(255, 51, 212, 0.8);
+        border-radius: 2px;
+    
+    }
+    
+    .pages nav .last {
+        margin-left: auto;
+    }  
+    
+    </style>
+    <title>View Orders</title>
+</head>
+
+<body>
+    <%- include('../views/partials/logReg_nav') %>
+
+   
+    <div class="login">
+        <div class="mess"> <!--styles cannot be applied to this-->
+        <% if (messages.error) { %>
+            <p style="color:red"><%- messages.error %></p>
+            <% } %>
+              
+            <% if (messages.success) { %>
+                <p style="color:green"><%- messages.success %></p>
+        <% } %>
+        </div>
+    
+        <form action="/user/login" method="post">
+            <h1>Login</h1>
+            <div class="profile">
+                <img src="https://www.exaltedchristchurch.com/wp-content/uploads/2017/02/blank-profile-picture-png-transparent.png" alt="">
+            </div>
+            <div class="name">
+                <label for="usr_email">Email Address: </label>
+                <br>
+                <input type="text" name="usr_email" placeholder="Email Address">
+            </div> 
+            
+            <div class="name">
+                <label for="pswrd"> Password:  </label>
+                <br>
+                <input type="password" name="pswrd" placeholder="Password">
+            </div>
+            <div class="submit">
+                <input type="submit">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

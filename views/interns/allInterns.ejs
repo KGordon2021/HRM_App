@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="public/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="pages">
+        <%- include('../partials/nav.ejs') %>
+    </div>
+    <div class="tables table2">
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Intern Id #</th>
+                <th>Intern Name</th>
+                <th>Email Address</th>
+                <th>Orientation Group</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+               
+            <% if(data.length) {
+                for(var i = 0; i < data.length; i++) { 
+            %>
+            <tr>
+                <td class="centered"><%= data[i].id %></td>
+                <td><%= data[i].intern_id %></td>
+                <td class="brk"><%= data[i].intern_fn %> <%= data[i].intern_ln %></td>
+                <td><%= data[i].email_addr %></td>
+                <td> <%=data[i].group_id %> </td>
+                <td class="centered">
+                    <a class="light" href="/allinterns/update/<%=data[i].id%>">Update</a> <!--this refers to the index of the current data collection which is currently stored as data-->
+                    <a class="warn" href="/allInterns/delete/<%=data[i].id%>">Remove</a>
+                </td>
+                
+            </tr>
+               <% }
+          }else{ %>
+            <tr>
+                <td>No Interns Listed</td>
+            </tr>
+           <% } %>
+        </tbody>
+    </table>
+    <div class="addbtn">
+        <a href="addNewIntern">Add New Intern</a>
+        </div>
+    </div>
+        </tbody>
+        
+    </table>
+    </div>
+</body>
+</html>
