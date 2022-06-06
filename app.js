@@ -53,7 +53,7 @@ app.set('views', path.join(__dirname, 'views'));
      secret: 'T3$C@r|8proDj8t',
      resave: false,
      saveUninitialized: true,
-     cookie: { maxAge: 120000 }
+     cookie: { maxAge: 1200000 }
  }))
  
 

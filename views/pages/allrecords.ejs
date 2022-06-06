@@ -38,7 +38,7 @@
                 <td class="brk"><%= data[i].hro_fnm %> <%= data[i].hro_lnm %></td>
                 <td> <%= new Date(data[i].appointment_date).toLocaleDateString() %> </td>
                 <td class="centered">
-                    <a class="light" href="/allRecords/update/<%=data[i].id%>">Update</a> <!--this refers to the index of the current data collection which is currently stored as data-->
+                    <a class="light" href="/allRecords/update/<%=data[i].id%>">Edit</a> <!--this refers to the index of the current data collection which is currently stored as data-->
                     <a class="warn" href="/allRecords/delete/<%=data[i].id%>">Remove</a>
                 </td>
                 

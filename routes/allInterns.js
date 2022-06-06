@@ -24,7 +24,7 @@ router.get('/existing_interns', function(req, res, next) { //route has to be dec
 
 //Update router to update projects //this is the set up for the actual page
 
-router.get('/allinterns/update/:id', function(req, res) { //must be router.get or app.get or whatever else i choose but it has to be a get http verb
+router.get('/existing_interns/update/:id', function(req, res) { //must be router.get or app.get or whatever else i choose but it has to be a get http verb
     if(req.session.loggedin == true) {
 
     conn.query("Select * FROM new_interns WHERE id =" + req.params.id, function(err,row){
